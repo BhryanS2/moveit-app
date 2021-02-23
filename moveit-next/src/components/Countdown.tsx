@@ -3,10 +3,12 @@ import { useState, useEffect } from 'react'
 // style
 import styles from '../styles/components/Countdown.module.css'
 
+// jornada infinita
 export function Countdown() {
     // funcinamento do countdown
     const [time, setTime] = useState(25 * 60)
     const [active, setActive] = useState(false)
+    const [buttonState, setButtonState] = useState('iniciar um ciclo')
 
 
     const minutes = Math.floor(time / 60)
@@ -17,9 +19,9 @@ export function Countdown() {
     const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('')
 
     function startCountdown() {
-        setActive(true)
-        
-        // active ? setActive(false) : setActive(true)
+        //setActive(true)
+        buttonState == 'iniciar um ciclo' ? setButtonState('Pausar ciclo') : setButtonState('iniciar um ciclo')
+        active ? setActive(false) : setActive(true)
         // o useEffect funciona como quando mudar/acontecer eu quero executar uma function
     }
 
@@ -52,7 +54,7 @@ export function Countdown() {
                 className={styles.countdownButton}
                 onClick={startCountdown}
             >
-                iniciar um ciclo
+               {buttonState}
             </button>
         </div>
     )
