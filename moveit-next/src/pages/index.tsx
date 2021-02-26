@@ -1,5 +1,6 @@
 // HTML no nextjs
 import Head from 'next/head'
+import { GetServerSideProps } from 'next'
 
 // componentes
 import { CompletedChallenges } from "../components/CompletedChallenges";
@@ -11,30 +12,57 @@ import { CountdownProvider } from '../contexts/CountdownContext';
 
 // style
 import styles from '../styles/pages/Home.module.css'
+import { ChallengesProvider } from '../contexts/ChallengeContext';
 
-export default function Home() {
+interface HomeProps {
+  level: number
+  currentExperience: number
+  challengeComplete: number
+}
+
+export default function Home(props:HomeProps) {
+
+  //console.log(props)
+
   return (
-    
-    <div className={styles.container}>
-      <Head>
-        <title>Início | moveit</title>
-      </Head>
+    <ChallengesProvider
+      level={props.level}
+      currentExperience={props.currentExperience}
+      challengeComplete={props.challengeComplete}
+    >
+      <div className={styles.container}>
+        <Head>
+          <title>Início | moveit</title>
+        </Head>
 
-      <ExperienceBar />
+        <ExperienceBar />
 
-      <CountdownProvider>
-        <section>
-          <div>
-            <Profile />
-            <CompletedChallenges />
-            <Countdown />
-          </div>
-          <div>
-            <ChallengeBox />
-          </div>
-        </section>
-      </CountdownProvider>
+        <CountdownProvider>
+          <section>
+            <div>
+              <Profile />
+              <CompletedChallenges />
+              <Countdown />
+            </div>
+            <div>
+              <ChallengeBox />
+            </div>
+          </section>
+        </CountdownProvider>
 
-    </div>
+      </div>
+    </ChallengesProvider>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const { level, currentExperience, challengeComplete } = ctx.req.cookies
+
+  return {
+    props: {
+      level: Number(level),
+      currentExperience: Number(currentExperience),
+      challengeComplete: Number(challengeComplete)
+    }
+  }
 }
