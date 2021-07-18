@@ -2,11 +2,13 @@
 import '../styles/global.css'
 
 // contexto do usuário
-import { ChallengesProvider } from "../contexts/ChallengeContext"
+import { Provider } from 'next-auth/client'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Component {...pageProps} />
+    <Provider session={pageProps.session}>
+      <Component {...pageProps} />
+    </Provider>
   )
 }
 

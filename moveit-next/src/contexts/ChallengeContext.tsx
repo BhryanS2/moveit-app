@@ -9,14 +9,14 @@ import Cookies from 'js-cookie'
 import challenges from '../../challenge.json'
 
 // dados do challenge (dos desafios)
-interface Challenge {
+type Challenge = {
     type: 'body' | 'eye'
     description: String
     amount: number
 }
 
 // tipo do value do ChallengesProviderProps
-interface ChallengesContextData {
+type ChallengesContextData = {
     level: number
     currentExperience: number
     challengeComplete: number
@@ -30,7 +30,7 @@ interface ChallengesContextData {
 }
 
 // tipo do children
-interface ChallengesProviderProps {
+type ChallengesProviderProps = {
     children: ReactNode;
     level: number
     currentExperience: number
