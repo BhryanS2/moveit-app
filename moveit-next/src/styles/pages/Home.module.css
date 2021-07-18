@@ -17,12 +17,6 @@
     align-content: center;
 }
 
-.NavBar {
-    position: fixed;
-    height: 100vh;
-    background-color: var(--white);
-}
-
 @media(max-width: 800px) {  
     .container section {
         display: flex;

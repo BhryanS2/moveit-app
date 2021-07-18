@@ -5,13 +5,13 @@ export function Login() {
   return (
     <section className={style.ContainerLogin}>
       <div className={style.Image}>
-        <img src="./icons/simbolo.svg" alt="logo" />
+        <img src="./icons/Simbolo.svg" alt="logo" />
       </div>
       <main className={style.ContentContainer}>
         <div className={style.Content}>
 
           <section className={style.ContentSection}>
-            <img src="./icons/logo.svg" alt="logo" />
+            <img src="./icons/Logo.svg" alt="logo" />
           </section>
 
           <section className={style.ContentMain}>

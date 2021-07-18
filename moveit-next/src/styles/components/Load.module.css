@@ -10,7 +10,7 @@
   animation: is-rotating 1s infinite;
   border: 6px solid var(--gray-line);
   border-radius: 50%;
-  border-top-color: var(--blue-twitter);
+  border-top-color: var(--blue);
   height: 100px;
   width: 100px;
 }
