@@ -22,7 +22,7 @@ export function Navbar({ isHome, isRank, children }: NavProps) {
           {isOpen ? (
             <div className={style.NavBar}>
               <div>
-                <img src="./icons/logoIcon.svg" alt="logo" />
+                <img src="./icons/LogoIcon.svg" alt="logo" />
                 <button onClick={toggle}>close nav</button>
               </div>
               <div className={style.NavContainer}>
